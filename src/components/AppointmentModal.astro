@@ -1,0 +1,271 @@
+---
+// AppointmentModal.astro
+---
+
+<dialog
+  id="appointment-dialog"
+  class="m-auto rounded-3xl p-0 bg-transparent text-[#16181B] max-w-xl w-[92vw] shadow-2xl backdrop:bg-black/60 backdrop:backdrop-blur-sm border-0 focus:outline-none overflow-hidden"
+  aria-labelledby="modal-headline"
+  aria-modal="true"
+>
+  <div class="relative bg-white rounded-3xl border border-[#C5A059]/30 shadow-2xl overflow-hidden">
+    
+    <!-- Modal Header with Champagne Accents -->
+    <div class="relative bg-gradient-to-br from-[#16181B] to-[#25282F] p-6 text-white overflow-hidden">
+      <!-- Decorative gold ambient glow -->
+      <div class="absolute top-0 right-0 w-48 h-48 bg-[#C5A059]/20 rounded-full blur-2xl pointer-events-none"></div>
+
+      <div class="flex items-start justify-between relative z-10">
+        <div>
+          <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#C5A059] text-white mb-2">
+            Priority Scheduling
+          </span>
+          <h3 id="modal-headline" class="font-serif text-2xl font-bold tracking-tight">
+            Schedule Your Consultation
+          </h3>
+          <p class="text-xs text-gray-300 mt-1">
+            Dr. Aziz Sakerwala • Radiant Dentistry Vadodara
+          </p>
+        </div>
+
+        <button
+          type="button"
+          id="close-modal-btn"
+          class="p-2 rounded-full text-gray-400 hover:text-white hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-[#C5A059]"
+          aria-label="Close appointment modal"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Quick Timings recap in modal header -->
+      <div class="mt-4 pt-3 border-t border-gray-700/60 flex items-center justify-between text-[11px] text-gray-300">
+        <span>🌅 Morning: 09:30 AM – 01:00 PM</span>
+        <span>🌆 Evening: 04:00 PM – 08:00 PM</span>
+      </div>
+    </div>
+
+    <!-- Appointment Form -->
+    <form id="appointment-form" class="p-6 sm:p-7 space-y-4">
+      
+      <!-- Full Name -->
+      <div>
+        <label for="patient-name" class="block text-xs font-bold uppercase tracking-wider text-[#16181B] mb-1.5">
+          Patient Full Name <span class="text-red-500">*</span>
+        </label>
+        <input
+          type="text"
+          id="patient-name"
+          name="patientName"
+          required
+          placeholder="e.g. Rahul Patel"
+          class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#C5A059] focus:ring-2 focus:ring-[#C5A059]/20 text-sm text-[#16181B] placeholder-gray-400 transition-colors"
+        />
+      </div>
+
+      <!-- Phone Number -->
+      <div>
+        <label for="patient-phone" class="block text-xs font-bold uppercase tracking-wider text-[#16181B] mb-1.5">
+          Phone / WhatsApp Number <span class="text-red-500">*</span>
+        </label>
+        <input
+          type="tel"
+          id="patient-phone"
+          name="patientPhone"
+          required
+          placeholder="e.g. +91 98765 43210"
+          class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#C5A059] focus:ring-2 focus:ring-[#C5A059]/20 text-sm text-[#16181B] placeholder-gray-400 transition-colors"
+        />
+      </div>
+
+      <!-- Preferred Date & OPD Slot -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label for="preferred-date" class="block text-xs font-bold uppercase tracking-wider text-[#16181B] mb-1.5">
+            Preferred Date
+          </label>
+          <input
+            type="date"
+            id="preferred-date"
+            name="preferredDate"
+            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#C5A059] focus:ring-2 focus:ring-[#C5A059]/20 text-sm text-[#16181B] transition-colors"
+          />
+        </div>
+
+        <div>
+          <label for="preferred-slot" class="block text-xs font-bold uppercase tracking-wider text-[#16181B] mb-1.5">
+            OPD Timing Slot
+          </label>
+          <select
+            id="preferred-slot"
+            name="preferredSlot"
+            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#C5A059] focus:ring-2 focus:ring-[#C5A059]/20 text-sm text-[#16181B] bg-white transition-colors"
+          >
+            <option value="Morning OPD (09:30 AM – 01:00 PM)">Morning (09:30 AM – 01:00 PM)</option>
+            <option value="Evening OPD (04:00 PM – 08:00 PM)">Evening (04:00 PM – 08:00 PM)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Procedure / Concern Selection -->
+      <div>
+        <label for="treatment-select" class="block text-xs font-bold uppercase tracking-wider text-[#16181B] mb-1.5">
+          Treatment or Primary Concern
+        </label>
+        <select
+          id="treatment-select"
+          name="treatment"
+          class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#C5A059] focus:ring-2 focus:ring-[#C5A059]/20 text-sm text-[#16181B] bg-white transition-colors"
+        >
+          <option value="General Consultation & Digital X-Ray">General Consultation &amp; Digital X-Ray</option>
+          <option value="Dental Implants & Hybrid Teeth">Dental Implants &amp; Hybrid Solutions</option>
+          <option value="Full Mouth Rehabilitation">Full Mouth Rehabilitation</option>
+          <option value="Smile Design & Porcelain Veneers">Smile Design &amp; Porcelain Veneers</option>
+          <option value="Zirconia Metal-Free Crowns">Zirconia Metal-Free Crowns</option>
+          <option value="Professional Teeth Whitening">Teeth Whitening &amp; Polishing</option>
+          <option value="Tooth Ache / Root Canal / Extraction">Tooth Ache / Root Canal / Wisdom Extraction</option>
+          <option value="Bleeding Gums & Deep Cleaning">Bleeding Gums &amp; Deep Cleaning</option>
+          <option value="Second Opinion on Dental Bridge/Dentures">Second Opinion on Dental Bridge/Dentures</option>
+        </select>
+      </div>
+
+      <!-- Optional Note -->
+      <div>
+        <label for="patient-note" class="block text-xs font-bold uppercase tracking-wider text-[#16181B] mb-1.5">
+          Additional Details or Symptoms (Optional)
+        </label>
+        <textarea
+          id="patient-note"
+          name="patientNote"
+          rows="2"
+          placeholder="Briefly describe your symptoms or what you'd like Dr. Aziz to examine..."
+          class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-[#C5A059] focus:ring-2 focus:ring-[#C5A059]/20 text-sm text-[#16181B] placeholder-gray-400 transition-colors"
+        ></textarea>
+      </div>
+
+      <!-- Submit Action via WhatsApp Instant Dispatch -->
+      <div class="pt-2">
+        <button
+          type="submit"
+          class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#C5A059] via-[#B38E46] to-[#9A7836] text-white font-semibold text-sm tracking-wider uppercase shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 transform hover:-translate-y-0.5"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.456 5.711 1.457h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          <span>Send Booking Request on WhatsApp</span>
+        </button>
+      </div>
+
+      <!-- Quick call fallback -->
+      <div class="text-center pt-2">
+        <a
+          href="tel:+917984781751"
+          class="text-xs text-[#6B7280] hover:text-[#C5A059] font-medium inline-flex items-center gap-1.5 transition-colors"
+        >
+          <span>Prefer direct telephone? Call <strong>+91 7984781751</strong></span>
+        </a>
+      </div>
+
+    </form>
+
+  </div>
+</dialog>
+
+<script>
+  // Modern Accessible Modal Logic with Light Dismiss
+  const dialog = document.getElementById('appointment-dialog') as HTMLDialogElement | null;
+  const closeBtn = document.getElementById('close-modal-btn');
+  const openButtons = document.querySelectorAll<HTMLElement>('[data-open-modal]');
+  const treatmentSelect = document.getElementById('treatment-select') as HTMLSelectElement | null;
+  const appointmentForm = document.getElementById('appointment-form') as HTMLFormElement | null;
+
+  // Set today as min date in date picker
+  const dateInput = document.getElementById('preferred-date') as HTMLInputElement | null;
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+  }
+
+  // Open modal handlers
+  openButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (!dialog) return;
+      const treatmentPreset = btn.getAttribute('data-treatment');
+      if (treatmentPreset && treatmentSelect) {
+        for (let i = 0; i < treatmentSelect.options.length; i++) {
+          if (treatmentSelect.options[i].text.toLowerCase().includes(treatmentPreset.toLowerCase()) || 
+              treatmentPreset.toLowerCase().includes(treatmentSelect.options[i].value.toLowerCase())) {
+            treatmentSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      dialog.showModal();
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  // Close handlers
+  const closeModal = () => {
+    if (!dialog) return;
+    dialog.close();
+    document.body.style.overflow = '';
+  };
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  // Light dismiss: Close on clicking backdrop
+  if (dialog) {
+    dialog.addEventListener('click', (event) => {
+      const rect = dialog.getBoundingClientRect();
+      const isInDialog = (
+        rect.top <= event.clientY &&
+        event.clientY <= rect.top + rect.height &&
+        rect.left <= event.clientX &&
+        event.clientX <= rect.left + rect.width
+      );
+      if (!isInDialog) {
+        closeModal();
+      }
+    });
+
+    dialog.addEventListener('cancel', () => {
+      document.body.style.overflow = '';
+    });
+  }
+
+  // Form submission -> Formats formatted WhatsApp Message
+  if (appointmentForm) {
+    appointmentForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = (document.getElementById('patient-name') as HTMLInputElement)?.value.trim() || 'Patient';
+      const phone = (document.getElementById('patient-phone') as HTMLInputElement)?.value.trim() || 'Not specified';
+      const date = (document.getElementById('preferred-date') as HTMLInputElement)?.value || 'Earliest Available';
+      const slot = (document.getElementById('preferred-slot') as HTMLSelectElement)?.value || 'Morning Slot';
+      const treatment = (document.getElementById('treatment-select') as HTMLSelectElement)?.value || 'Consultation';
+      const note = (document.getElementById('patient-note') as HTMLTextAreaElement)?.value.trim();
+
+      let text = `Hello Dr. Aziz Sakerwala, I would like to schedule an appointment at Radiant Dentistry:\n\n`;
+      text += `• *Patient Name*: ${name}\n`;
+      text += `• *Phone*: ${phone}\n`;
+      text += `• *Preferred Date*: ${date}\n`;
+      text += `• *Preferred Slot*: ${slot}\n`;
+      text += `• *Treatment*: ${treatment}\n`;
+      if (note) {
+        text += `• *Notes*: ${note}\n`;
+      }
+      text += `\nPlease confirm availability. Thank you!`;
+
+      const encodedText = encodeURIComponent(text);
+      const whatsappUrl = `https://wa.me/917984781751?text=${encodedText}`;
+
+      closeModal();
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    });
+  }
+</script>

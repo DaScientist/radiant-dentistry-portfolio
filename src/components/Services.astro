@@ -1,0 +1,264 @@
+---
+// Services.astro
+interface ServiceItem {
+  id: string;
+  category: 'prosthodontics' | 'cosmetic' | 'restorative';
+  categoryLabel: string;
+  title: string;
+  description: string;
+  features: string[];
+  tag?: string;
+  iconSvg: string;
+}
+
+const services: ServiceItem[] = [
+  // 1. Advanced Prosthodontics & Implants
+  {
+    id: "dental-implants",
+    category: "prosthodontics",
+    categoryLabel: "Prosthodontics & Implants",
+    tag: "Signature Specialty",
+    title: "Dental Implants & Hybrid Teeth",
+    description: "Permanent replacement for single or multiple missing teeth using biocompatible titanium and zirconia implants that fuse seamlessly with the jawbone.",
+    features: ["Single & Multiple Tooth Implants", "All-on-4 / All-on-6 Hybrid Solutions", "Immediate Load Implant Protocols", "Bone Preservation Techniques"],
+    iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />`
+  },
+  {
+    id: "full-mouth-rehab",
+    category: "prosthodontics",
+    categoryLabel: "Prosthodontics & Implants",
+    tag: "MDS Super-Specialty",
+    title: "Full Mouth Rehabilitation",
+    description: "Comprehensive restoration of collapsed bites, severely worn down teeth, and jaw TMJ alignment orchestrated by Dr. Aziz Sakerwala's advanced MDS training.",
+    features: ["Bite & Occlusal Reconstruction", "Severe Dental Attrition Correction", "TMJ Pain & Jaw Balance Relief", "Full Arch Fixed Bridges"],
+    iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7C5 4 4 5 4 7zM9 9h6M9 13h6M9 17h4" />`
+  },
+  {
+    id: "fixed-removable-dentures",
+    category: "prosthodontics",
+    categoryLabel: "Prosthodontics & Implants",
+    title: "Fixed & Removable Hybrid Dentures",
+    description: "Precision-engineered cast partials, flexible dentures, and implant-retained overdentures restoring youthful masticatory efficiency and facial aesthetics.",
+    features: ["Precision Attachment Partials", "Implant-Supported Overdentures", "Custom Tooth Shading & Characterization", "Snug Painless Fit Guaranteed"],
+    iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />`
+  },
+
+  // 2. Cosmetic Dentistry
+  {
+    id: "smile-design-veneers",
+    category: "cosmetic",
+    categoryLabel: "Cosmetic Dentistry",
+    tag: "Aesthetic Excellence",
+    title: "Smile Design & Porcelain Veneers",
+    description: "Ultra-thin, handcrafted ceramic laminates designed according to facial proportions, lip line dynamics, and individual personality for a breathtaking smile.",
+    features: ["Custom CAD/CAM Ceramic Veneers", "Gap Closure & Diastema Correction", "Minimal Tooth Preparation", "Natural Multi-Layer Translucency"],
+    iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />`
+  },
+  {
+    id: "zirconia-crowns",
+    category: "cosmetic",
+    categoryLabel: "Cosmetic Dentistry",
+    title: "Zirconia Metal-Free Crowns & Bridges",
+    description: "Bio-inert, unbreakable monolithic zirconia crowns with zero black gum lines. Superior biocompatibility with lifelike optical depth.",
+    features: ["100% Metal-Free Ceramic", "No Dark Margins at Gum Line", "Extreme Fracture Resistance", "Precise Digital Margins"],
+    iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />`
+  },
+  {
+    id: "teeth-whitening",
+    category: "cosmetic",
+    categoryLabel: "Cosmetic Dentistry",
+    title: "Professional Teeth Whitening & Polishing",
+    description: "In-office laser-assisted brightening lifting deep-seated coffee, tea, and tobacco stains up to 8 shades in a single safe, monitored session.",
+    features: ["Rapid 45-Minute In-Clinic Treatment", "Enamel-Safe Desensitizing Formula", "Micro-Air Abrasion Polishing", "Long-Lasting Radiant Shine"],
+    iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />`
+  },
+
+  // 3. Restorative & Preventive Care
+  {
+    id: "digital-xray",
+    category: "restorative",
+    categoryLabel: "Restorative & Preventive",
+    tag: "High-Tech Diagnostics",
+    title: "Digital Radiography & Low-Dose X-Rays",
+    description: "Instant high-definition RVG digital sensors providing microscopic structural clarity with 90% reduced radiation compared to conventional film.",
+    features: ["Instant Chairside Screen Viewing", "Sub-Millimeter Bone & Root Analysis", "Ultra-Low Radiation Exposure", "Comprehensive Diagnostic Mapping"],
+    iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />`
+  },
+  {
+    id: "root-canal-fillings",
+    category: "restorative",
+    categoryLabel: "Restorative & Preventive",
+    title: "Tooth-Colored Fillings & Root Therapy",
+    description: "Gentle, microscopic root canal treatments and nano-hybrid composite restorations that seal tooth decay invisibly and relieve pain immediately.",
+    features: ["Rotary Endodontics (Painless RCT)", "Invisible Nano-Composite Fillings", "Caries Arrest & Tooth Preservation", "Post & Core Foundations"],
+    iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />`
+  },
+  {
+    id: "gum-extractions",
+    category: "restorative",
+    categoryLabel: "Restorative & Preventive",
+    title: "Gum Therapies & 3rd Molar Extractions",
+    description: "Ultrasonic scaling for bleeding/receding gums and painless atraumatic surgical extractions of impacted wisdom teeth with rapid healing.",
+    features: ["Deep Ultrasonic Subgingival Scaling", "Gum Bleeding & Recession Therapy", "Atraumatic 3rd Molar (Wisdom) Extraction", "Platelet-Rich Healing Care"],
+    iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />`
+  }
+];
+---
+
+<section id="services" class="py-20 md:py-28 bg-[#FAFAFB] relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto space-y-4 mb-12 md:mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#C5A059]/10 text-[#9A7836] border border-[#C5A059]/30">
+        Specialized Clinical Spectrum
+      </div>
+      <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#16181B] tracking-tight">
+        Mastery in Restorative, Aesthetic &amp; Prosthetic Dentistry
+      </h2>
+      <p class="text-base sm:text-lg text-[#6B7280]">
+        From complex full-mouth implants to micro-aesthetic porcelain veneers, every procedure is executed under strict prosthodontic protocols for lifelong durability and radiant beauty.
+      </p>
+
+      <!-- Category Filter Tabs -->
+      <div class="flex flex-wrap items-center justify-center gap-2 pt-4" id="service-filters" role="tablist">
+        <button
+          type="button"
+          data-filter="all"
+          class="filter-tab active px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 bg-[#16181B] text-white shadow-sm"
+          role="tab"
+          aria-selected="true"
+        >
+          All Procedures
+        </button>
+        <button
+          type="button"
+          data-filter="prosthodontics"
+          class="filter-tab px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 bg-white text-[#16181B] hover:bg-[#C5A059]/10 border border-gray-200"
+          role="tab"
+          aria-selected="false"
+        >
+          Advanced Prosthodontics &amp; Implants
+        </button>
+        <button
+          type="button"
+          data-filter="cosmetic"
+          class="filter-tab px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 bg-white text-[#16181B] hover:bg-[#C5A059]/10 border border-gray-200"
+          role="tab"
+          aria-selected="false"
+        >
+          Cosmetic Dentistry &amp; Veneers
+        </button>
+        <button
+          type="button"
+          data-filter="restorative"
+          class="filter-tab px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 bg-white text-[#16181B] hover:bg-[#C5A059]/10 border border-gray-200"
+          role="tab"
+          aria-selected="false"
+        >
+          Restorative &amp; Preventive Care
+        </button>
+      </div>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-grid">
+      {services.map((item) => (
+        <article
+          class="service-card group relative bg-white rounded-3xl p-7 sm:p-8 border border-[#C5A059]/20 hover:border-[#C5A059] shadow-sm hover:shadow-[0_15px_35px_rgba(197,160,89,0.18)] transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between"
+          data-category={item.category}
+        >
+          <!-- Top Row: Medical Icon & Category Tag -->
+          <div>
+            <div class="flex items-start justify-between gap-4 mb-6">
+              <div class="w-13 h-13 w-12 h-12 rounded-2xl bg-[#FAFAFB] group-hover:bg-[#C5A059]/10 border border-[#C5A059]/20 flex items-center justify-center text-[#C5A059] transition-colors duration-300 shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" set:html={item.iconSvg} />
+              </div>
+
+              {item.tag && (
+                <span class="inline-block px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-[#C5A059]/15 text-[#9A7836] border border-[#C5A059]/30">
+                  {item.tag}
+                </span>
+              )}
+            </div>
+
+            <!-- Title & Description -->
+            <div class="space-y-3 mb-6">
+              <p class="text-[11px] font-semibold uppercase tracking-wider text-[#8E95A5]">
+                {item.categoryLabel}
+              </p>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-[#16181B] group-hover:text-[#C5A059] transition-colors leading-snug">
+                {item.title}
+              </h3>
+              <p class="text-sm text-[#6B7280] leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+
+            <!-- Clinical Features Bullet Points -->
+            <ul class="space-y-2 mb-8 pt-4 border-t border-gray-100">
+              {item.features.map((feat) => (
+                <li class="flex items-center gap-2.5 text-xs text-[#16181B]/90 font-medium">
+                  <svg class="w-4 h-4 text-[#C5A059] shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <span>{feat}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Bottom Action -->
+          <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+            <button
+              type="button"
+              data-open-modal
+              data-treatment={item.title}
+              class="text-xs font-bold uppercase tracking-wider text-[#C5A059] group-hover:text-[#9A7836] flex items-center gap-1.5 focus:outline-none"
+            >
+              <span>Consult on this procedure</span>
+              <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // Service category filter tabs logic
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.filter-tab');
+  const cards = document.querySelectorAll<HTMLElement>('.service-card');
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const filter = tab.getAttribute('data-filter');
+
+      // Update tab styles
+      tabs.forEach((t) => {
+        t.classList.remove('bg-[#16181B]', 'text-white', 'active');
+        t.classList.add('bg-white', 'text-[#16181B]');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.remove('bg-white', 'text-[#16181B]');
+      tab.classList.add('bg-[#16181B]', 'text-white', 'active');
+      tab.setAttribute('aria-selected', 'true');
+
+      // Filter cards
+      cards.forEach((card) => {
+        const category = card.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          card.style.display = 'flex';
+          card.style.opacity = '1';
+        } else {
+          card.style.display = 'none';
+          card.style.opacity = '0';
+        }
+      });
+    });
+  });
+</script>

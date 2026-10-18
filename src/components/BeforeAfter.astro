@@ -1,0 +1,236 @@
+---
+// BeforeAfter.astro
+const caseStudies = [
+  {
+    title: "Full Smile Veneer Makeover",
+    patient: "Patient Age: 34",
+    concern: "Severe enamel hypoplasia, irregular spacing & yellow discoloration",
+    solution: "10 Upper Handcrafted Ultra-Thin E-Max Porcelain Veneers",
+    timeframe: "Completed in 2 clinical visits",
+    badge: "Cosmetic Veneers",
+    quote: "I can finally smile with 100% confidence in every photo."
+  },
+  {
+    title: "Full Arch All-on-4 Implant Bridge",
+    patient: "Patient Age: 58",
+    concern: "Severe periodontal bone loss & multiple non-restorable missing teeth",
+    solution: "Titanium Sub-structure with Monolithic Zirconia Full Arch Hybrid",
+    timeframe: "Immediate functional provisional loaded in 48 hours",
+    badge: "Prosthodontics",
+    quote: "Eating my favorite meals without pain feels like getting my youth back."
+  },
+  {
+    title: "Anterior Aesthetic Zirconia Restoration",
+    patient: "Patient Age: 29",
+    concern: "Fractured central incisor with stained old acrylic filling",
+    solution: "Custom multi-translucent bio-inert Zirconia crown matching natural shade",
+    timeframe: "Single-week turnaround with digital shade calibration",
+    badge: "Restorative",
+    quote: "No one can tell which tooth was restored—it looks completely real!"
+  }
+];
+---
+
+<section id="results" class="py-20 md:py-28 bg-white relative overflow-hidden">
+  <!-- Subtle ambient decorative glow -->
+  <div class="absolute -top-40 right-1/4 w-96 h-96 bg-[#C5A059]/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+  <div class="absolute -bottom-40 left-1/4 w-96 h-96 bg-[#8E95A5]/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Title -->
+    <div class="text-center max-w-3xl mx-auto space-y-4 mb-14 sm:mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#C5A059]/10 text-[#9A7836] border border-[#C5A059]/30">
+        Clinical Transformations
+      </div>
+      <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#16181B] tracking-tight">
+        Precision Smile Transformations
+      </h2>
+      <p class="text-base sm:text-lg text-[#6B7280]">
+        Witness the synergy of prosthodontic biomechanics and aesthetic artistry. Slide horizontally to see the true difference Dr. Aziz Sakerwala's craftsmanship creates.
+      </p>
+    </div>
+
+    <!-- Interactive Before / After Slider Component -->
+    <div class="max-w-4xl mx-auto mb-16">
+      <div class="relative bg-white rounded-3xl p-4 sm:p-6 border border-[#C5A059]/30 shadow-[0_20px_50px_rgba(22,24,27,0.08)]">
+        
+        <!-- Header Info Bar -->
+        <div class="flex flex-wrap items-center justify-between gap-3 pb-4 mb-4 border-b border-gray-100">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-[#C5A059] animate-pulse"></span>
+            <span class="text-xs sm:text-sm font-bold text-[#16181B] tracking-wide uppercase">
+              Interactive Comparison Module
+            </span>
+          </div>
+          <p class="text-xs text-[#6B7280]">
+            <span class="hidden sm:inline">👈 Drag slider or click anywhere to compare 👉</span>
+            <span class="sm:hidden">👈 Drag slider to compare 👉</span>
+          </p>
+        </div>
+
+        <!-- The Slider Container -->
+        <div
+          id="comparison-container"
+          class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden select-none cursor-ew-resize shadow-inner bg-gray-100 touch-none"
+          role="region"
+          aria-label="Before and After Smile Comparison Slider"
+        >
+          <!-- "After" Image (Underneath, full view) -->
+          <img
+            src="/images/smile_after.jpg"
+            alt="Radiant Dentistry After Treatment: Natural Radiant Porcelain Veneers & Healthy Gums"
+            class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+            loading="lazy"
+          />
+          <div class="absolute bottom-5 right-5 z-10 px-3.5 py-1.5 rounded-full bg-emerald-600/90 backdrop-blur-md text-white text-xs font-bold tracking-wider uppercase shadow-md pointer-events-none">
+            After Makeover
+          </div>
+
+          <!-- "Before" Image (Clipped by slider position) -->
+          <div
+            id="before-wrapper"
+            class="absolute inset-0 w-1/2 overflow-hidden pointer-events-none"
+            style="width: 50%;"
+          >
+            <img
+              src="/images/smile_before.jpg"
+              alt="Radiant Dentistry Before Treatment: Discolored & Gapped Teeth"
+              class="absolute inset-0 max-w-none h-full object-cover pointer-events-none"
+              id="before-img"
+              loading="lazy"
+            />
+            <div class="absolute bottom-5 left-5 z-10 px-3.5 py-1.5 rounded-full bg-[#16181B]/80 backdrop-blur-md text-white text-xs font-bold tracking-wider uppercase shadow-md pointer-events-none">
+              Before Care
+            </div>
+          </div>
+
+          <!-- Slider Line and Handle -->
+          <div
+            id="slider-handle"
+            class="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-20 shadow-[0_0_15px_rgba(0,0,0,0.5)]"
+            style="left: 50%;"
+          >
+            <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white text-[#C5A059] border-2 border-[#C5A059] flex items-center justify-center shadow-lg">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l-3 3m0 0l3 3m-3-3h14m-3-6l3 3m0 0l-3 3" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footnote details -->
+        <div class="mt-4 pt-3 flex flex-wrap items-center justify-between text-xs text-[#6B7280] gap-2">
+          <span class="font-medium text-[#16181B]">Procedure: Minimally-Invasive Smile Design &amp; Porcelain Veneers</span>
+          <span class="text-[#9A7836] font-semibold">Treated by: Dr. Aziz Sakerwala (MDS)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case Studies Triad -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {caseStudies.map((item, idx) => (
+        <div class="bg-[#FAFAFB] rounded-2xl p-6 sm:p-7 border border-[#C5A059]/20 hover:border-[#C5A059] transition-all duration-300 hover:shadow-md flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-[#9A7836] bg-[#C5A059]/10 px-2.5 py-1 rounded-full border border-[#C5A059]/20">
+                {item.badge}
+              </span>
+              <span class="text-xs font-semibold text-[#8E95A5]">Case 0{idx + 1}</span>
+            </div>
+
+            <h3 class="font-serif text-lg font-bold text-[#16181B] leading-snug">
+              {item.title}
+            </h3>
+
+            <div class="space-y-2 text-xs">
+              <div class="p-2.5 rounded-xl bg-white border border-gray-100">
+                <strong class="text-red-700/80 block uppercase text-[10px] tracking-wider">Initial Concern:</strong>
+                <p class="text-[#6B7280] mt-0.5">{item.concern}</p>
+              </div>
+
+              <div class="p-2.5 rounded-xl bg-white border border-[#C5A059]/20">
+                <strong class="text-[#9A7836] block uppercase text-[10px] tracking-wider">Clinical Solution:</strong>
+                <p class="text-[#16181B] font-medium mt-0.5">{item.solution}</p>
+              </div>
+            </div>
+
+            <p class="text-xs italic text-[#16181B]/80 border-l-2 border-[#C5A059] pl-3 py-1">
+              "{item.quote}"
+            </p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-gray-200/80 flex items-center justify-between text-[11px] text-[#6B7280]">
+            <span>{item.timeframe}</span>
+            <span class="font-semibold text-[#C5A059]">{item.patient}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // Interactive Before/After slider implementation
+  const container = document.getElementById('comparison-container');
+  const beforeWrapper = document.getElementById('before-wrapper');
+  const beforeImg = document.getElementById('before-img');
+  const handle = document.getElementById('slider-handle');
+
+  if (container && beforeWrapper && beforeImg && handle) {
+    let isDragging = false;
+
+    const setPosition = (xPos: number) => {
+      const rect = container.getBoundingClientRect();
+      let pos = (xPos - rect.left) / rect.width;
+      if (pos < 0) pos = 0;
+      if (pos > 1) pos = 1;
+
+      const percentage = pos * 100;
+      beforeWrapper.style.width = `${percentage}%`;
+      handle.style.left = `${percentage}%`;
+      // Maintain before image width equal to container width so it doesn't stretch or distort
+      beforeImg.style.width = `${rect.width}px`;
+    };
+
+    // Update before image size on resize
+    const updateSize = () => {
+      const rect = container.getBoundingClientRect();
+      beforeImg.style.width = `${rect.width}px`;
+    };
+
+    window.addEventListener('resize', updateSize);
+    updateSize();
+
+    // Mouse events
+    container.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      setPosition(e.clientX);
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      setPosition(e.clientX);
+    });
+
+    // Touch events for mobile
+    container.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      if (e.touches[0]) setPosition(e.touches[0].clientX);
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+
+    window.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      if (e.touches[0]) setPosition(e.touches[0].clientX);
+    }, { passive: true });
+  }
+</script>

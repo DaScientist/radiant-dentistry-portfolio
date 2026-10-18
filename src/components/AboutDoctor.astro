@@ -1,0 +1,184 @@
+---
+// AboutDoctor.astro
+const credentials = [
+  {
+    title: "M.D.S. Prosthodontics",
+    desc: "Master of Dental Surgery specializing in complex oral rehabilitation, implants, crown & bridge engineering."
+  },
+  {
+    title: "B.D.S. Dental Surgery",
+    desc: "Comprehensive foundation in biomedical oral diagnostics, therapeutics, and microsurgical techniques."
+  },
+  {
+    title: "Implantologist & Smile Designer",
+    desc: "Fellowship-level expertise in computer-guided implant surgery and digital facial aesthetic protocols."
+  }
+];
+
+const pillars = [
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />`,
+    title: "What is an MDS Prosthodontist?",
+    desc: "A Prosthodontist is a super-specialist who completes 3 years of rigorous post-graduate surgical and restorative hospital training dedicated exclusively to rebuilding missing teeth, jaw bone architecture, and restoring masticatory chewing function."
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />`,
+    title: "The Architect of Your Smile",
+    desc: "Often referred to as the 'architects of dentistry', prosthodontists look beyond isolated teeth to balance the entire stomatognathic system—your facial muscles, TMJ joints, and teeth—ensuring restorations never break and look naturally radiant."
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />`,
+    title: "Zero-Anxiety & Gentle Care",
+    desc: "Dr. Aziz Sakerwala prioritizes empathetic, painless care. With modern topical numbing and computer-measured anesthetic delivery, even patients with severe dental phobia feel calm and secure."
+  }
+];
+---
+
+<section id="about" class="py-20 md:py-28 bg-[#FAFAFB] relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Top Pill -->
+    <div class="text-center max-w-3xl mx-auto space-y-4 mb-14 sm:mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#C5A059]/10 text-[#9A7836] border border-[#C5A059]/30">
+        Clinical Leadership
+      </div>
+      <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#16181B] tracking-tight">
+        Meet Dr. Aziz Sakerwala
+      </h2>
+      <p class="text-base sm:text-lg text-[#6B7280]">
+        Consultant Prosthodontist &amp; Implantologist dedicated to elevating dental standards through clinical science, precision engineering, and compassionate care in Vadodara.
+      </p>
+    </div>
+
+    <!-- Doctor Profile Spotlight Bento -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
+      
+      <!-- Doctor Portrait Column (5 cols) -->
+      <div class="lg:col-span-5 relative">
+        <div class="relative mx-auto max-w-md lg:max-w-none">
+          <div class="relative rounded-3xl overflow-hidden bg-white p-3 border border-[#C5A059]/30 shadow-xl">
+            <div class="relative rounded-2xl overflow-hidden aspect-[1/1] bg-gray-100">
+              <img
+                src="/images/dr_aziz.jpg"
+                alt="Dr. Aziz Sakerwala B.D.S. M.D.S. Prosthodontics at Radiant Dentistry Vadodara"
+                class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#16181B]/70 via-transparent to-transparent"></div>
+              
+              <!-- Bottom Name Overlay -->
+              <div class="absolute bottom-4 left-4 right-4 text-white">
+                <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#C5A059] text-white mb-1 shadow-sm">
+                  Lead Specialist
+                </span>
+                <h3 class="text-xl font-bold font-serif">Dr. Aziz Sakerwala</h3>
+                <p class="text-xs text-gray-200">B.D.S., M.D.S. (Prosthodontics)</p>
+              </div>
+            </div>
+
+            <!-- Social & Direct Connect Bar -->
+            <div class="mt-3 p-3 rounded-xl bg-[#FAFAFB] border border-[#C5A059]/15 flex items-center justify-between">
+              <a
+                href="https://www.instagram.com/azizjuzer/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-xs font-semibold text-[#16181B] hover:text-[#C5A059] transition-colors"
+                aria-label="Visit Dr. Aziz on Instagram"
+              >
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 flex items-center justify-center text-white shadow-sm">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
+                </div>
+                <span>@azizjuzer</span>
+              </a>
+
+              <a
+                href="https://wa.me/917984781751?text=Hello%20Dr.%20Aziz%20Sakerwala,%20I%20would%20like%20to%20consult%20with%20you."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-xs font-bold text-[#C5A059] hover:underline"
+              >
+                <span>Direct Chat</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Doctor Narrative & Qualifications (7 cols) -->
+      <div class="lg:col-span-7 space-y-6">
+        <div class="space-y-3">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#C5A059]">Specialist Profile</span>
+          <h3 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#16181B] leading-tight">
+            Comprehensive Dental Engineering with an Artist's Touch
+          </h3>
+          <p class="text-sm sm:text-base text-[#6B7280] leading-relaxed">
+            Dr. Aziz Sakerwala holds both a Bachelor of Dental Surgery (B.D.S.) and a rigorous Master of Dental Surgery (M.D.S.) in Prosthodontics. Prosthodontics is the only dental specialty acknowledged globally for the holistic architectural restoration and replacement of oral structures.
+          </p>
+        </div>
+
+        <!-- Academic Rigor Badges -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {credentials.map((cred) => (
+            <div class="p-4 rounded-2xl bg-white border border-[#C5A059]/20 shadow-sm">
+              <p class="text-xs font-bold text-[#16181B] mb-1.5 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#C5A059]"></span>
+                {cred.title}
+              </p>
+              <p class="text-[11px] text-[#6B7280] leading-relaxed">
+                {cred.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Quote Card -->
+        <div class="p-5 rounded-2xl bg-gradient-to-br from-white to-[#FBF8F1] border-l-4 border-[#C5A059] shadow-sm">
+          <p class="text-sm text-[#16181B] font-serif italic leading-relaxed">
+            "A radiant smile is not merely cosmetic. When teeth fit harmoniously, digestion improves, facial collapse reverses, and life-changing self-confidence returns. That is the true science of Prosthodontics."
+          </p>
+          <p class="text-xs font-bold text-[#9A7836] mt-2 uppercase tracking-wider">
+            — Dr. Aziz Sakerwala, M.D.S.
+          </p>
+        </div>
+
+        <!-- Action Button -->
+        <div class="pt-2">
+          <button
+            type="button"
+            data-open-modal
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-[#16181B] text-white hover:bg-[#C5A059] transition-colors duration-300 shadow-md"
+          >
+            <span>Book Private Consultation with Dr. Aziz</span>
+            <svg class="w-4 h-4 text-[#C5A059]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Educational Pillars: Why Consult an MDS Prosthodontist -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-gray-200">
+      {pillars.map((pillar) => (
+        <div class="p-6 rounded-2xl bg-white border border-gray-200/80 hover:border-[#C5A059]/40 transition-all duration-300 shadow-sm space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-[#C5A059]/10 text-[#C5A059] flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" set:html={pillar.icon} />
+          </div>
+          <h4 class="font-serif text-lg font-bold text-[#16181B]">
+            {pillar.title}
+          </h4>
+          <p class="text-xs sm:text-sm text-[#6B7280] leading-relaxed">
+            {pillar.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
