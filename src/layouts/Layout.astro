@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
   title?: string;
@@ -10,63 +10,82 @@ interface Props {
 const {
   title = "Radiant Dentistry | Dr. Aziz Sakerwala | Specialist Prosthodontist & Implantologist Vadodara",
   description = "Experience precision prosthodontics, full mouth rehabilitation, dental implants & radiant smile design in Vadodara by Dr. Aziz Sakerwala (B.D.S., M.D.S. Prosthodontics). Book your consultation today.",
-  image = "/images/clinic_interior.jpg"
+  image = "/images/clinic_interior.jpg",
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://radiantdentistry.in");
+const canonicalURL = new URL(
+  Astro.url.pathname,
+  Astro.site || "https://radiantdentistry.in",
+);
 
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "Dentist",
-  "name": "Radiant Dentistry",
-  "alternateName": "Radiant Dentistry - Dr. Aziz Sakerwala (Prosthodontist & Implantologist)",
-  "image": "https://radiantdentistry.in/images/clinic_interior.jpg",
-  "logo": "https://radiantdentistry.in/favicon.svg",
-  "telephone": "+917984781751",
-  "url": "https://radiantdentistry.in",
-  "priceRange": "₹₹",
-  "address": {
+  name: "Radiant Dentistry",
+  alternateName:
+    "Radiant Dentistry - Dr. Aziz Sakerwala (Prosthodontist & Implantologist)",
+  image: "https://radiantdentistry.in/images/clinic_interior.jpg",
+  logo: "https://radiantdentistry.in/RadiantDentistryLogoIcon.png",
+  telephone: "+917984781751",
+  url: "https://radiantdentistry.in",
+  priceRange: "₹₹",
+  address: {
     "@type": "PostalAddress",
-    "streetAddress": "4, Sikligar Society, Opp. Vinayak Hospital, Besides SBI, Outside Panigate",
-    "addressLocality": "Vadodara",
-    "addressRegion": "Gujarat",
-    "postalCode": "390019",
-    "addressCountry": "IN"
+    streetAddress:
+      "4, Sikligar Society, Opp. Vinayak Hospital, Besides SBI, Outside Panigate",
+    addressLocality: "Vadodara",
+    addressRegion: "Gujarat",
+    postalCode: "390019",
+    addressCountry: "IN",
   },
-  "geo": {
+  geo: {
     "@type": "GeoCoordinates",
-    "latitude": 22.3025,
-    "longitude": 73.2084
+    latitude: 22.3025,
+    longitude: 73.2084,
   },
-  "openingHoursSpecification": [
+  openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "09:30",
-      "closes": "13:00"
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
+      opens: "09:30",
+      closes: "13:00",
     },
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "16:00",
-      "closes": "20:00"
-    }
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
+      opens: "16:00",
+      closes: "20:00",
+    },
   ],
-  "medicalSpecialty": [
+  medicalSpecialty: [
     "Prosthodontics",
     "Dental Implants",
     "Cosmetic Dentistry",
     "Full Mouth Rehabilitation",
-    "Smile Design"
+    "Smile Design",
   ],
-  "founder": {
+  founder: {
     "@type": "Physician",
-    "name": "Dr. Aziz Sakerwala",
-    "honorificPrefix": "Dr.",
-    "honorificSuffix": "B.D.S., M.D.S. (Prosthodontics)",
-    "jobTitle": "Consultant Prosthodontist & Implantologist",
-    "sameAs": "https://www.instagram.com/azizjuzer/"
-  }
+    name: "Dr. Aziz Sakerwala",
+    honorificPrefix: "Dr.",
+    honorificSuffix: "B.D.S., M.D.S. (Prosthodontics)",
+    jobTitle: "Consultant Prosthodontist & Implantologist",
+    sameAs: "https://www.instagram.com/azizjuzer/",
+  },
 };
 ---
 
@@ -75,16 +94,19 @@ const schemaData = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="icon" type="image/png" href="/RadiantDentistryLogoIcon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/RadiantDentistryLogoIcon.png" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#C5A059" />
 
     <!-- SEO Meta Tags -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="Prosthodontist in Vadodara, Best Dentist in Panigate Vadodara, Dr Aziz Sakerwala, Dental Implants Vadodara, Full Mouth Rehabilitation Vadodara, Smile Design Vadodara, Porcelain Veneers, Radiant Dentistry" />
+    <meta
+      name="keywords"
+      content="Prosthodontist in Vadodara, Best Dentist in Panigate Vadodara, Dr Aziz Sakerwala, Dental Implants Vadodara, Full Mouth Rehabilitation Vadodara, Smile Design Vadodara, Porcelain Veneers, Radiant Dentistry"
+    />
     <meta name="author" content="Dr. Aziz Sakerwala" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonicalURL} />
@@ -107,12 +129,17 @@ const schemaData = {
     <!-- Google Fonts: Plus Jakarta Sans (body) & Playfair Display / Cinzel (luxury serif accents) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Structured JSON-LD Schema -->
     <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
   </head>
-  <body class="bg-[#FAFAFB] text-[#16181B] selection:bg-[#C5A059]/20 selection:text-[#16181B] antialiased">
+  <body
+    class="bg-[#FAFAFB] text-[#16181B] selection:bg-[#C5A059]/20 selection:text-[#16181B] antialiased"
+  >
     <slot />
   </body>
 </html>
